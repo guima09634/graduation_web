@@ -22,8 +22,13 @@ module.exports = {
     src: '~/plugins/element-ui',
     ssr: true,
   }],
+
+  /*
+  ** Global CSS
+  */
   css: [
-    {src:'element-ui/lib/theme-chalk/index.css'}
+    'element-ui/lib/theme-chalk/index.css',
+    '@/assets/css/index.css'
   ],
   
   /*
