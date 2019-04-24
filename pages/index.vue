@@ -3,10 +3,10 @@
     <div>
       <app-logo/>
       <h1 class="title">
-        graduation_web
+        Hello
       </h1>
       <h2 class="subtitle">
-        my graduation project
+        Hello
       </h2>
       <div class="links">
         <a

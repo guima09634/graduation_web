@@ -1,5 +1,5 @@
 <template>
-    <el-container class="page-content-wrap table-content">
+  <el-container class="page-content-wrap table-content">
     <el-card class="width-100 margin-0-auto">
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item>

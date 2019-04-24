@@ -1,38 +1,47 @@
 <template>
   <el-container>
-        <el-aside width="200px">
+        <el-aside width="250px">
           <el-menu default-active="1" mode="vertical"  background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b">
             <el-submenu index="1">
               <template slot="title">玩家管理</template>
-              <el-menu-item index="1-1"><nuxt-link to="/users/userData">玩家数据查管理</nuxt-link></el-menu-item>
-              <el-menu-item index="1-2">游戏登陆数据观管理</el-menu-item>
+              <el-menu-item index="1-1"><nuxt-link to="/users/userData">玩家数据管理</nuxt-link></el-menu-item>
+              <el-menu-item index="1-2">玩家登陆查询</el-menu-item>
               <el-menu-item index="1-3">玩家功能3</el-menu-item>
             </el-submenu>
             <el-submenu index="2">
               <template slot="title">游戏管理</template>
               <el-menu-item index="2-1">游戏储值数据查询</el-menu-item>
-              <el-menu-item index="2-2">储值订单补发</el-menu-item>
-              <el-menu-item index="2-3">储值功能3</el-menu-item>
+              <el-menu-item index="2-2">游戏Key配置</el-menu-item>
+              <el-menu-item index="2-3">游戏配置</el-menu-item>
+              <el-menu-item index="2-3">游戏首储配置</el-menu-item>
             </el-submenu>
             <el-submenu index="3">
               <template slot="title">储值管理</template>
               <el-menu-item index="3-1">储值订单查看</el-menu-item>
-              <el-menu-item index="3-2">储值订单补发</el-menu-item>
+              <el-menu-item index="3-2">vip管理</el-menu-item>
               <el-menu-item index="3-3">储值功能3</el-menu-item>
             </el-submenu>
             <el-submenu index="4">
               <template slot="title">客服管理</template>
               <el-menu-item index="4-1">玩家问题</el-menu-item>
               <el-menu-item index="4-2">客服服务记录</el-menu-item>
-              <el-menu-item index="4-3">玩家功能3</el-menu-item>
+              <el-menu-item index="4-3">客服信息管理</el-menu-item><!--主要是管理公司内部客服员工的编号-->
+            </el-submenu>
+            <el-submenu index="5">
+              <template slot="title">系统管理</template>
+              <el-menu-item index="4-1">角色管理</el-menu-item>
+              <el-menu-item index="4-2">账号管理</el-menu-item>
             </el-submenu>
           </el-menu>
         </el-aside>
-        <el-main>
-          <nuxt/>
-        </el-main>
+        <el-container>
+          <el-header>21321321</el-header>
+          <el-main>
+            <nuxt/>
+          </el-main>
+        </el-container>
   </el-container>
 </template>
 
