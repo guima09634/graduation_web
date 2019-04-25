@@ -1,9 +1,12 @@
 <template>
   <el-container>
         <el-aside width="250px">
-          <el-menu default-active="1" mode="vertical"  background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b">
+          <el-menu
+            default-active="1"
+            mode="vertical"
+            background-color="#304156"
+            text-color="#fff"
+            active-text-color="#ffd04b">
             <el-submenu index="1">
               <template slot="title">玩家管理</template>
               <el-menu-item index="1-1"><nuxt-link to="/users/userData">玩家数据管理</nuxt-link></el-menu-item>
@@ -36,12 +39,11 @@
             </el-submenu>
           </el-menu>
         </el-aside>
-        <el-container>
-          <el-header>21321321</el-header>
-          <el-main>
+        <el-main>
+          <transition name="el-fade-in-linear">
             <nuxt/>
-          </el-main>
-        </el-container>
+          </transition>
+        </el-main>
   </el-container>
 </template>
 
