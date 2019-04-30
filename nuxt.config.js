@@ -16,12 +16,19 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
+
+  modules: [
+    '@nuxtjs/axios',
+  ],
+
+  axios:{
+    prefix: '/api/',
+    proxy:true
+  },
+
   loading: { color: '#3B8070' },
 
-  plugins: [{
-    src: '~/plugins/element-ui',
-    ssr: true,
-  }],
+  plugins: ['~/plugins/element-ui'],
 
   /*
   ** Global CSS
@@ -39,7 +46,7 @@ module.exports = {
     ** Run ESLint on save
     */
     extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
+      if (isDev &&  isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,

@@ -6,7 +6,7 @@
           <el-input v-model="queryForm.userId" placeholder="玩家Id" clearable />
         </el-form-item>
         <el-form-item>
-          <el-select placeholder="请选择注册方式" v-model="queryForm.registeredMode">
+          <el-select placeholder="请选择注册方式" v-model="queryForm.mode">
               <el-option
               v-for="item in registeredStyle"
               :key="item.index"
@@ -17,7 +17,7 @@
           </el-select>
         </el-form-item>
         <el-form-item>
-          <el-input v-model="queryForm.registeredDependences" placeholder="请输入注册依赖" clearable/>
+          <el-input v-model="queryForm.email" placeholder="请输入注册依赖" clearable/>
         </el-form-item>
         <el-form-item>
             <el-date-picker
@@ -39,7 +39,7 @@
         </el-form-item>
       </el-form>
       <div class="button-list">
-        <el-button type="primary" icon="el-icon-search" plain>查询</el-button>
+        <el-button type="primary" icon="el-icon-search" @click="query" plain>查询</el-button>
         <el-button type="success" icon="el-icon-printer" plain>导出</el-button>
         <el-button type="warning" icon="el-icon-setting" plain>账号设置</el-button>
       </div>
@@ -108,8 +108,9 @@ export default {
             },
             queryForm: {
                 userId:'',
-                registeredMode:'',
-                registeredDependences:'',
+                mode:'',
+                phone:'',
+                email:'',
                 startTime:'',
                 endTime:''
             },
@@ -122,6 +123,20 @@ export default {
         handleSelectionChange (val) {
             this.selectData = val
         },
+
+        query() {
+          this.$axios({
+              url:'http://localhost:9090/api/user/query',
+              method:'post',
+              data:this.queryForm
+          }).then( (res) => {
+              console.log(res.data);
+          },error => {
+              console.log(error)
+          }).catch(error => {
+              console.log(error);
+          })
+        }
     }
 }
 </script>
