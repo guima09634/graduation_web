@@ -3,12 +3,18 @@
     <el-card class="width-100 margin-0-auto">
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item>
-          <el-input v-model="queryForm.userId" placeholder="玩家Id" clearable />
+          <el-input v-model="queryForm.userId" placeholder="请输入玩家Id" size="mini" clearable />
         </el-form-item>
         <el-form-item>
-          <el-select placeholder="请选择登录方式" v-model="queryForm.platform">
+          <el-input v-model="queryForm.creditId" placeholder="请输入订单号" size="mini" clearable />
+        </el-form-item>
+         <el-form-item>
+          <el-input v-model="queryForm.gameName" placeholder="请输入游戏名字" size="mini" clearable />
+        </el-form-item>
+        <el-form-item>
+          <el-select placeholder="请选择第三方支付平台" size="mini" v-model="queryForm.platform">
               <el-option
-              v-for="item in loginPlatform"
+              v-for="item in payPlatform"
               :key="item.index"
               :value="item.value"
               :label="item.label"
@@ -17,11 +23,18 @@
           </el-select>
         </el-form-item>
         <el-form-item>
+          <el-input-number placeholder="请输入起始金额" v-model="queryForm.startAmount" size="mini" :precision="0.1" :step="0.1" :max="500000"></el-input-number>
+        </el-form-item>
+        <el-form-item>
+          <el-input-number placeholder="请输入结束金额" v-model="queryForm.endAmount" size="mini" :precision="0" :step="0.1" :max="500000"></el-input-number>
+        </el-form-item>
+        <!--<el-form-item>
             <el-date-picker
                 v-model="queryForm.startTime"
                 type="datetime"
                 placeholder="选择开始时间"
                 align="right"
+                size="mini"
                 :picker-options="pickerOptions">
             </el-date-picker>
         </el-form-item>
@@ -31,13 +44,15 @@
                 type="datetime"
                 placeholder="选择结束时间"
                 align="right"
+                size="mini"
                 :picker-options="pickerOptions">
             </el-date-picker>
-        </el-form-item>
+        </el-form-item>-->
       </el-form>
       <div class="button-list">
         <el-button type="primary" icon="el-icon-search" @click="query" plain>查询</el-button>
         <el-button type="success" icon="el-icon-printer" plain>导出</el-button>
+        <el-button type="danger" icon="el-icon-printer" plain>补发</el-button>
       </div>
       <el-table
             ref="multipleTable"
@@ -73,10 +88,9 @@
 export default {
     data (){
         return {
-            loginPlatform: [
-                {value:'web', label:'网页'}, 
-                {value:'android', label:'安卓'}, 
-                {value:'ios', label:'ios'}
+            payPlatform: [
+                {value:'alipay', label:'支付宝'}, 
+                {value:'weixin', label:'微信支付'}, 
             ],
             pickerOptions: {
                 disabledDate(time) {
@@ -105,7 +119,10 @@ export default {
             },
             queryForm: {
                 userId:'',
+                creditId:'',
                 platform:'',
+                startAmout:'',
+                endAmount:'',
                 startTime:'',
                 endTime:''
             },

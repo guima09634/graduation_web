@@ -3,12 +3,12 @@
     <el-card class="width-100 margin-0-auto">
       <el-form :inline="true" class="demo-form-inline">
         <el-form-item>
-          <el-input v-model="queryForm.userId" placeholder="玩家Id" clearable />
+          <el-input v-model="queryForm.gameName" placeholder="请输入游戏的名字" clearable />
         </el-form-item>
         <el-form-item>
-          <el-select placeholder="请选择登录方式" v-model="queryForm.platform">
+          <el-select placeholder="请选择配置类型" v-model="queryForm.type">
               <el-option
-              v-for="item in loginPlatform"
+              v-for="item in structureType"
               :key="item.index"
               :value="item.value"
               :label="item.label"
@@ -36,8 +36,10 @@
         </el-form-item>
       </el-form>
       <div class="button-list">
-        <el-button type="primary" icon="el-icon-search" @click="query" plain>查询</el-button>
-        <el-button type="success" icon="el-icon-printer" plain>导出</el-button>
+        <el-button type="primary" icon="el-icon-search" @click="query" round plain>查询</el-button>
+        <el-button type="success" icon="el-icon-plus" round plain>添加</el-button>
+        <el-button type="warning" icon="el-icon-edit" round plain>修改</el-button>
+        <el-button type="danger" icon="el-icon-delete" round plain>删除</el-button>
       </div>
       <el-table
             ref="multipleTable"
@@ -73,10 +75,9 @@
 export default {
     data (){
         return {
-            loginPlatform: [
-                {value:'web', label:'网页'}, 
-                {value:'android', label:'安卓'}, 
-                {value:'ios', label:'ios'}
+            structureType: [
+                {value:'vip', label:'vip特权配置'}, 
+                {value:'first', label:'首储配置'}, 
             ],
             pickerOptions: {
                 disabledDate(time) {
@@ -104,8 +105,8 @@ export default {
                 }]
             },
             queryForm: {
-                userId:'',
-                platform:'',
+                gameName:'',
+                type:'',
                 startTime:'',
                 endTime:''
             },

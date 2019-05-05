@@ -8,26 +8,26 @@
             text-color="#fff"
             active-text-color="#ffd04b">
             <el-submenu index="1">
-              <template slot="title">玩家管理</template>
+              <template slot="title">玩家</template>
               <el-menu-item index="1-1"><nuxt-link to="/users/userData">玩家数据管理</nuxt-link></el-menu-item>
-              <el-menu-item index="1-2">玩家登陆查询</el-menu-item>
+              <el-menu-item index="1-2"><nuxt-link to="/users/userLogin">玩家登录查询</nuxt-link></el-menu-item>
               <el-menu-item index="1-3">玩家功能3</el-menu-item>
             </el-submenu>
             <el-submenu index="2">
-              <template slot="title">游戏管理</template>
-              <el-menu-item index="2-1">游戏储值数据查询</el-menu-item>
+              <template slot="title">游戏</template>  
+              <el-menu-item index="2-1"><nuxt-link to="/game/gameManage">游戏管理</nuxt-link></el-menu-item>
               <el-menu-item index="2-2">游戏Key配置</el-menu-item>
               <el-menu-item index="2-3">游戏配置</el-menu-item>
-              <el-menu-item index="2-3">游戏首储配置</el-menu-item>
+              <el-menu-item index="2-3"><nuxt-link to="/game/gamePayStructure">游戏储值配置</nuxt-link></el-menu-item>
             </el-submenu>
             <el-submenu index="3">
-              <template slot="title">储值管理</template>
-              <el-menu-item index="3-1">储值订单查看</el-menu-item>
-              <el-menu-item index="3-2">vip管理</el-menu-item>
+              <template slot="title">储值</template>
+              <el-menu-item index="3-1"><nuxt-link to="/pay/payOrderManage">储值订单管理</nuxt-link></el-menu-item>
+              <el-menu-item index="3-2"></el-menu-item>
               <el-menu-item index="3-3">储值功能3</el-menu-item>
             </el-submenu>
             <el-submenu index="4">
-              <template slot="title">客服管理</template>
+              <template slot="title">客服</template>
               <el-menu-item index="4-1">玩家问题</el-menu-item>
               <el-menu-item index="4-2">客服服务记录</el-menu-item>
               <el-menu-item index="4-3">客服信息管理</el-menu-item><!--主要是管理公司内部客服员工的编号-->
